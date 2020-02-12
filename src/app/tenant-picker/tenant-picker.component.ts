@@ -20,7 +20,11 @@ export class TenantPickerComponent implements OnInit {
       .getTenants()
       .subscribe(
         responseData => this.handleTenants(responseData),       
-        err => this.errorService.errorHandler(err,'TenantPicker_init')
+        err => {
+          if(this.errorService.errorHandler(err,'TenantPicker_init')){
+            this.apiService.destroyToken();
+          }
+        }
       );  
   }
 
@@ -43,7 +47,11 @@ export class TenantPickerComponent implements OnInit {
         .getWalletBalance(tenantId)
         .subscribe(
           responseData => this.handleWallet(responseData),
-          err => this.errorService.errorHandler(err,'refreshWallet')
+          err =>{
+            if(this.errorService.errorHandler(err,'refreshWallet')){
+              this.apiService.destroyToken();
+            }
+          }
         );
     }
   }

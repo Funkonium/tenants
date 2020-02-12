@@ -9,18 +9,18 @@ import { APIService } from "../API.service";
 export class NavigationComponent implements OnInit {
   isLoggedIn: boolean = false;
 
-  constructor(private APIService: APIService) {
+  constructor(private apiService: APIService) {
 
-    this.APIService.isLoggedInEmitter.subscribe((mode) => {
+    this.apiService.isLoggedInEmitter.subscribe((mode) => {
       this.isLoggedIn = mode;
     });
   }
   
   ngOnInit() {
-    this.isLoggedIn = this.APIService.checkToken();
+    this.isLoggedIn = this.apiService.checkToken();
   }
 
   logout(){
-    this.APIService.destroyToken();
+    this.apiService.destroyToken();
   }
 }

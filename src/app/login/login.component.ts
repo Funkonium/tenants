@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
+  private targetLocation: string = "tenantpicker";
 
-  constructor(private apiService: APIService, router: Router) {
+  constructor(private apiService: APIService, private router: Router) {
   }
 
   loginCredentials = new FormGroup({
@@ -22,11 +23,13 @@ export class LoginComponent implements OnInit {
     this.apiService.obtainToken(
       this.loginCredentials.value.EmailAddress,
       this.loginCredentials.value.Password,
-      'tenantpicker'
+      this.targetLocation
     );
   }
 
   ngOnInit() {
-
+    if (this.apiService.checkToken()){
+      this.router.navigate(['/' + this.targetLocation]); 
+    }
   }
 }

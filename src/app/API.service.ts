@@ -58,7 +58,8 @@ export class APIService {
     this.errorService.clearErrorMessage();
     sessionStorage.removeItem('userTokenObject');
     this.router.navigate(['/']);    
-    this.isLoggedIn.next(false);    
+    this.isLoggedIn.next(false);  
+    this.errorService.errorMessage.next("You have been logged out")  
   }
 
   checkToken(){
