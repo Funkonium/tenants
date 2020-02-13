@@ -1,17 +1,17 @@
-<h2>Login</h2>
+<h1>Login</h1>
 <form [formGroup]="loginCredentials" (ngSubmit)="login()"> 
 
   <div>
     <label>Email address
-      <input type="email" formControlName="EmailAddress">
+      <input id="emailInput" type="email" formControlName="EmailAddress">
     </label>
   </div>
   <div>
     <label>Password
-      <input type="password" formControlName="Password">
+      <input id="passwordInput" type="password" formControlName="Password">
     </label>
   </div>
   <div>
-    <button type="submit" [disabled]="!loginCredentials.valid">Login</button>
+    <button id="loginSubmit" type="submit" [disabled]="!loginCredentials.valid">Login</button>
   </div>
 </form>

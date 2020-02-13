@@ -1,6 +1,6 @@
 <h1>Tenant picker</h1>
-<select *ngIf="tenants.length > 0" (change)="refreshWallet($event.target.value)">
+<select id="tenantSelect" *ngIf="tenants.length > 0" (change)="refreshWallet($event.target.value)">
   <option value="0">Please select</option>
   <option *ngFor="let tenant of tenants" value={{tenant.id}}>{{ tenant.name }}</option>
 </select>
-<p *ngIf="wallet">Credits: {{wallet.credits}}</p>
+<p id="creditDisplay" *ngIf="wallet">Credits: {{wallet.credits}}</p>
