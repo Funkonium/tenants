@@ -36,6 +36,10 @@ export class TenantPickerComponent implements OnInit {
         }
       });
     }
+
+    if (this.tenants.length === 0){
+      this.errorService.errorMessage.next('No tenants available');
+    }
   }
 
   refreshWallet(tenantId) {
@@ -58,6 +62,12 @@ export class TenantPickerComponent implements OnInit {
 
   handleWallet(responseData) {
 
-    this.wallet = responseData;
+
+    if (responseData.credits !== undefined){
+      this.wallet = responseData;
+    }
+    else{
+      this.errorService.errorMessage.next('Unable to display wallet balance');
+    }
   }
 }

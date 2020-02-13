@@ -22,13 +22,13 @@ export class ErrorService {
     let errorText = "";
     let killSession: Boolean = false;
 
-    console.log(originator);
-    console.log("Status:" + error.status)
-    console.log("Status text:" + error.statusText)
-    console.log("ok:" + error.ok)
-    console.log("Message:" + error.message)
-    console.log("Error:" + error.error.error)
-    console.log("Error:" + error.error.error_description)
+    // console.log(originator);
+    // console.log("Status:" + error.status)
+    // console.log("Status text:" + error.statusText)
+    // console.log("ok:" + error.ok)
+    // console.log("Message:" + error.message)
+    // console.log("Error:" + error.error.error)
+    // console.log("Error:" + error.error.error_description)
 
     if (error.status === 401){
       killSession = true;
